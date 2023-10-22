@@ -37,12 +37,13 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         }
 
         // GET: ideaColors/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             ViewBag.idColor = new SelectList(db.Color, "idColor", "nombreColor");
-            ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea");
             return View();
         }
+
 
         // POST: ideaColors/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
@@ -55,7 +56,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.ideaColor.Add(ideaColor);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.idColor = new SelectList(db.Color, "idColor", "nombreColor", ideaColor.idColor);

@@ -37,16 +37,14 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         }
 
         // GET: ideaHerramientas/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             ViewBag.idHerramienta = new SelectList(db.Herramienta, "idHerramienta", "nombreHerramienta");
-            ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea");
             return View();
         }
 
         // POST: ideaHerramientas/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,idIdea,idHerramienta")] ideaHerramienta ideaHerramienta)
@@ -62,6 +60,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea", ideaHerramienta.idIdea);
             return View(ideaHerramienta);
         }
+
 
         // GET: ideaHerramientas/Edit/5
         public ActionResult Edit(int? id)

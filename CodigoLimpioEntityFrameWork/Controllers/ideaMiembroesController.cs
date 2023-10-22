@@ -37,31 +37,46 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         }
 
         // GET: ideaMiembroes/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea");
+            ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             ViewBag.idMiembro = new SelectList(db.Miembro, "idMiembro", "nombreMiembro");
             return View();
         }
 
-        // POST: ideaMiembroes/Create
+
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: ideaMiembroes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,idIdea,idMiembro")] ideaMiembro ideaMiembro)
         {
-            if (ModelState.IsValid)
+            if (ideaMiembro != null && ModelState.IsValid)
             {
                 db.ideaMiembro.Add(ideaMiembro);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                // Redirige al usuario de nuevo a la página de creación
+                return RedirectToAction("Create", new { id = ideaMiembro.idIdea });
             }
 
-            ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea", ideaMiembro.idIdea);
-            ViewBag.idMiembro = new SelectList(db.Miembro, "idMiembro", "nombreMiembro", ideaMiembro.idMiembro);
+            if (ideaMiembro != null)
+            {
+                ViewBag.idIdea = ideaMiembro.idIdea;
+                ViewBag.idMiembro = new SelectList(db.Miembro, "idMiembro", "nombreMiembro", ideaMiembro.idMiembro);
+            }
+            else
+            {
+                ViewBag.idIdea = null;
+                ViewBag.idMiembro = new SelectList(db.Miembro, "idMiembro", "nombreMiembro");
+            }
+
             return View(ideaMiembro);
         }
+
+
+
 
         // GET: ideaMiembroes/Edit/5
         public ActionResult Edit(int? id)

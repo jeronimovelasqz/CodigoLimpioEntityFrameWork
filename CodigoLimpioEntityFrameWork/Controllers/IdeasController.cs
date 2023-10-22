@@ -44,6 +44,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         // POST: Ideas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Ideas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idIdea,nombreIdea,inversionRequerida,ingresosObjetivos,inversionInfraestructura")] Idea idea)
@@ -52,11 +53,15 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.Idea.Add(idea);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                // Redirige al usuario a la vista 'Create' del controlador 'ideaMiembro',
+                // pasando el ID de la idea como parámetro
+                return RedirectToAction("Create", "ideaMiembroes", new { id = idea.idIdea });
             }
 
             return View(idea);
         }
+
 
         // GET: Ideas/Edit/5
         public ActionResult Edit(int? id)
