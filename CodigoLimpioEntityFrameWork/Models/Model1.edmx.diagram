@@ -7,7 +7,7 @@
       <Diagram DiagramId="f237e83a165b4bb8810b8537879a8d41" Name="Diagram1">
         <EntityTypeShape EntityType="ColoriaModel.Color" Width="1.5" PointX="6.5" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ColoriaModel.Departamento" Width="1.5" PointX="8.625" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ColoriaModel.DepartamentoColor" Width="1.5" PointX="8.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.DepartamentoColor" Width="1.5" PointX="8.625" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="ColoriaModel.DesarrolloRegional" Width="1.5" PointX="4.625" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ColoriaModel.Herramienta" Width="1.5" PointX="3.25" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ColoriaModel.Idea" Width="1.5" PointX="4.75" PointY="7.625" IsExpanded="true" />
@@ -24,6 +24,7 @@
         <AssociationConnector Association="ColoriaModel.FK_ideaHerramienta_Idea" ManuallyRouted="false" />
         <AssociationConnector Association="ColoriaModel.FK_ideaMiembro_Idea" ManuallyRouted="false" />
         <AssociationConnector Association="ColoriaModel.FK_ideaMiembro_Miembro" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ColoriaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

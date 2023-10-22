@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CodigoLimpioEntityFrameWork.Models;
 
+
 namespace CodigoLimpioEntityFrameWork.Controllers
 {
     public class EstadisticasController : Controller
@@ -25,7 +26,9 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult IdeasMayorRentabilidad()
         {
             var ideas = db.Idea.OrderByDescending(i => i.ingresosObjetivos - i.inversionRequerida).Take(3).ToList();
-            ViewBag.Resultados = ideas;
+            ViewBag.IdeasMasRentables = ideas;
+
+            System.Diagnostics.Debug.WriteLine($"Se encontraron {ideas.Count} ");
             return View("operaciones");
         }
 
@@ -41,7 +44,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
 
             System.Diagnostics.Debug.WriteLine($"Se encontraron {ideas.Count} ideas que impactan a más de 3 departamentos");
 
-            ViewBag.Resultados = ideas;
+            ViewBag.IdeasQueImpactan3Departamentos = ideas;
             return View("operaciones");
         }
 
@@ -51,7 +54,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult SumaIngresos()
         {
             var sumaIngresos = db.Idea.Sum(i => i.ingresosObjetivos);
-            ViewBag.Resultados = sumaIngresos;
+            ViewBag.SumaIngresos = sumaIngresos;
             return View("operaciones");
         }
 
@@ -59,7 +62,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult SumaInversiones()
         {
             var sumaInversiones = db.Idea.Sum(i => i.inversionRequerida);
-            ViewBag.Resultados = sumaInversiones;
+            ViewBag.SumaInversion = sumaInversiones;
             return View("operaciones");
         }
 
@@ -67,7 +70,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult IdeaMayorHerramientas()
         {
             var idea = db.Idea.OrderByDescending(i => i.ideaHerramienta.Count).FirstOrDefault();
-            ViewBag.Resultados = idea;
+            ViewBag.IdeasConMayorHerramientas = idea;
             return View("operaciones");
         }
 
@@ -75,7 +78,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult IdeasConIA()
         {
             var cantidad = db.ideaHerramienta.Count(ih => ih.Herramienta.nombreHerramienta == "Inteligencia Artificial");
-            ViewBag.Resultados = cantidad;  
+            ViewBag.IdeasConIa = cantidad;  
             return View("operaciones");
         }
 
@@ -83,7 +86,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult IdeaMayorInversionInfraestructura()
         {
             var idea = db.Idea.OrderByDescending(i => i.inversionInfraestructura).FirstOrDefault();
-            ViewBag.Resultados = idea;  
+            ViewBag.IdeasConMayorInfraestructura = idea;  
             return View("operaciones");
         }
 
@@ -92,7 +95,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         {
             var promedioIngresos = db.Idea.Average(i => i.ingresosObjetivos);
             var ideas = db.Idea.Where(i => i.ingresosObjetivos > promedioIngresos).ToList();
-            ViewBag.Resultados = ideas;
+            ViewBag.IdeasConMayorPromedio = ideas;
             return View("operaciones");
         }
 
@@ -100,10 +103,9 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult IdeasConDesarrolloSostenible()
         {
             var ideas = db.ideaHerramienta.Where(ih => ih.Herramienta.nombreHerramienta == "Desarrollo Sostenible").Select(ih => ih.Idea).ToList();
-            ViewBag.Resultados = ideas;
+            ViewBag.IdeasConDesarrolloSostenible = ideas;
             return View("operaciones");
         }
-
 
 
 

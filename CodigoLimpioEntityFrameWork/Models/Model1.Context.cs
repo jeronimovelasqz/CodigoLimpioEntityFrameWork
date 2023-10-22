@@ -35,5 +35,6 @@ namespace CodigoLimpioEntityFrameWork.Models
         public virtual DbSet<ideaHerramienta> ideaHerramienta { get; set; }
         public virtual DbSet<ideaMiembro> ideaMiembro { get; set; }
         public virtual DbSet<Miembro> Miembro { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
