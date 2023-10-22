@@ -26,6 +26,27 @@
             @Html.DisplayFor(model => model.descripcionColor)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartamentoColor)
+        </dt>
+        <dd>
+            @foreach (var departamentoColor in Model.DepartamentoColor)
+            {
+                <div>@departamentoColor.Departamento.nombreDepartamento</div>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ideaColor)
+        </dt>
+        <dd>
+            @foreach (var ideaColor in Model.ideaColor)
+            {
+                <div>@ideaColor.Idea.idIdea - @ideaColor.Idea.nombreIdea</div>
+            }
+        </dd>
+
+
     </dl>
 </div>
 <p>

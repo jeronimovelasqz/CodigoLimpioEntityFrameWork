@@ -50,13 +50,27 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Miembro.Add(miembro);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Miembro.Add(miembro);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Diagnostics.Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
             }
 
             return View(miembro);
         }
+
 
         // GET: Miembroes/Edit/5
         public ActionResult Edit(int? id)
@@ -110,10 +124,21 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Miembro miembro = db.Miembro.Find(id);
+
+            // Eliminar los registros relacionados en ideaMiembro
+            foreach (var ideaMiembro in miembro.ideaMiembro.ToList())
+            {
+                db.ideaMiembro.Remove(ideaMiembro);
+            }
+
+            // Ahora puedes eliminar el Miembro
             db.Miembro.Remove(miembro);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -110,10 +110,21 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Color color = db.Color.Find(id);
+
+            // Eliminar los registros relacionados en ideaColor
+            foreach (var ideaColor in color.ideaColor.ToList())
+            {
+                db.ideaColor.Remove(ideaColor);
+            }
+
+            // Ahora puedes eliminar el Color
             db.Color.Remove(color);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -19,6 +19,40 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ideaColor)
+        </dt>
+        <dd>
+            @foreach (var ideaColor in Model.ideaColor)
+            {
+                <div>@ideaColor.Color.nombreColor</div>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ideaHerramienta)
+        </dt>
+        <dd>
+            @foreach (var ideaHerramienta in Model.ideaHerramienta)
+            {
+                <div>@ideaHerramienta.Herramienta.nombreHerramienta</div>
+            }
+        </dd>
+
+
+        <dt>
+            @Html.DisplayName("Departamentos")
+        </dt>
+        <dd>
+            @foreach (var departamento in ViewBag.Departamentos)
+            {
+                <div>@departamento.nombreDepartamento</div>
+            }
+        </dd>
+
+
+
+
+        <dt>
             @Html.DisplayNameFor(model => model.inversionRequerida)
         </dt>
 

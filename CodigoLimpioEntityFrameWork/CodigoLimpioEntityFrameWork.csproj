@@ -132,6 +132,7 @@
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\DesarrolloRegionalsController.cs" />
     <Compile Include="Controllers\EstadisticasController.cs" />
+    <Compile Include="Controllers\FluxController.cs" />
     <Compile Include="Controllers\HerramientasController.cs" />
     <Compile Include="Controllers\ideaColorsController.cs" />
     <Compile Include="Controllers\ideaHerramientasController.cs" />
@@ -301,6 +302,8 @@
     <Content Include="Views\Herramientas\Edit.cshtml" />
     <Content Include="Views\Herramientas\Index.cshtml" />
     <Content Include="Views\Estadisticas\Operaciones.cshtml" />
+    <Content Include="Views\Flujo\Usuario.cshtml" />
+    <Content Include="Views\Flujo\Administrador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -56,7 +56,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.DesarrolloRegional.Add(desarrolloRegional);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea", desarrolloRegional.idIdea);

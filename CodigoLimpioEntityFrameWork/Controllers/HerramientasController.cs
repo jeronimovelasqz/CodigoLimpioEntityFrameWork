@@ -110,10 +110,21 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Herramienta herramienta = db.Herramienta.Find(id);
+
+            // Eliminar los registros relacionados en ideaHerramienta
+            foreach (var ideaHerramienta in herramienta.ideaHerramienta.ToList())
+            {
+                db.ideaHerramienta.Remove(ideaHerramienta);
+            }
+
+            // Ahora puedes eliminar la Herramienta
             db.Herramienta.Remove(herramienta);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Soy administrador";
+}
+
+<h2>Soy administrador</h2>
+
+<div>
+    <h4>Gestión de ideas</h4>
+    <p>
+        <button onclick="location.href='@Url.Action("Index", "Ideas")'" type="button" class="btn btn-primary btn-md">CRUD Ideas</button>
+    </p>
+
+    <h4>Gestión de colores</h4>
+    <p>
+        <button onclick="location.href='@Url.Action("Index", "Colors")'" type="button" class="btn btn-primary btn-md">CRUD Colores</button>
+    </p>
+
+    <h4>Gestión de miembros</h4>
+    <p>
+        <button onclick="location.href='@Url.Action("Index", "Miembroes")'" type="button" class="btn btn-primary btn-md">CRUD Miembros</button>
+    </p>
+
+    <h4>Estadisticas de las ideas</h4>
+    <p>
+        <button onclick="location.href='@Url.Action("Operaciones", "Estadisticas")'" type="button" class="btn btn-primary btn-md">estadisticas</button>
+    </p>
+</div>

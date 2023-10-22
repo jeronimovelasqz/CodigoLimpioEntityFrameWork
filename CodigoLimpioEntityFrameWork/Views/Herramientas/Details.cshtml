@@ -18,6 +18,16 @@
             @Html.DisplayFor(model => model.nombreHerramienta)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ideaHerramienta)
+        </dt>
+        <dd>
+            @foreach (var ideaHerramienta in Model.ideaHerramienta)
+            {
+                <div>@ideaHerramienta.Idea.idIdea - @ideaHerramienta.Idea.nombreIdea</div>
+            }
+        </dd>
+
     </dl>
 </div>
 <p>

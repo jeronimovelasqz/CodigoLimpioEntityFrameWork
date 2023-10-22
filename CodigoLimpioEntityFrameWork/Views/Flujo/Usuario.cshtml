@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Soy usuario";
+}
+
+<h2>Soy usuario</h2>
+
+@using (Html.BeginForm("Create", "Ideas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Crear idea" class="btn btn-primary btn-md" />
+}
+
+@using (Html.BeginForm("Create", "Miembroes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Crear miembro" class="btn btn-primary btn-md" />
+}
