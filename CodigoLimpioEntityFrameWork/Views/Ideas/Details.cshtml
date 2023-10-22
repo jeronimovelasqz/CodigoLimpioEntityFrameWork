@@ -1,0 +1,50 @@
+﻿@model CodigoLimpioEntityFrameWork.Models.Idea
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Idea</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreIdea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreIdea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inversionRequerida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inversionRequerida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresosObjetivos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresosObjetivos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inversionInfraestructura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inversionInfraestructura)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idIdea }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

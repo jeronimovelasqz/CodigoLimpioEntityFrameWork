@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f237e83a165b4bb8810b8537879a8d41" Name="Diagram1">
+        <EntityTypeShape EntityType="ColoriaModel.Color" Width="1.5" PointX="6.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.Departamento" Width="1.5" PointX="8.625" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.DepartamentoColor" Width="1.5" PointX="8.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.DesarrolloRegional" Width="1.5" PointX="4.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.Herramienta" Width="1.5" PointX="3.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.Idea" Width="1.5" PointX="4.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.ideaColor" Width="1.5" PointX="6.375" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.ideaHerramienta" Width="1.5" PointX="3.125" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.ideaMiembro" Width="1.5" PointX="11" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColoriaModel.Miembro" Width="1.5" PointX="10.875" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="ColoriaModel.FK_DepartamentoColor_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaColor_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_DepartamentoColor_Departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_DesarrolloRegional_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaHerramienta_Herramienta" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaColor_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaHerramienta_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaMiembro_Idea" ManuallyRouted="false" />
+        <AssociationConnector Association="ColoriaModel.FK_ideaMiembro_Miembro" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ColoriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="idColor" />
+          </Key>
+          <Property Name="idColor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreColor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcionColor" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreDepartamento" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="DepartamentoColor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDepartamento" Type="int" Nullable="false" />
+          <Property Name="idColor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DesarrolloRegional">
+          <Key>
+            <PropertyRef Name="idDesarrolloRegional" />
+          </Key>
+          <Property Name="idDesarrolloRegional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdea" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Herramienta">
+          <Key>
+            <PropertyRef Name="idHerramienta" />
+          </Key>
+          <Property Name="idHerramienta" Type="int" Nullable="false" />
+          <Property Name="nombreHerramienta" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="idIdea" />
+          </Key>
+          <Property Name="idIdea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreIdea" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="inversionRequerida" Type="float" Nullable="false" />
+          <Property Name="ingresosObjetivos" Type="float" Nullable="false" />
+          <Property Name="inversionInfraestructura" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ideaColor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdea" Type="int" Nullable="false" />
+          <Property Name="idColor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ideaHerramienta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdea" Type="int" Nullable="false" />
+          <Property Name="idHerramienta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ideaMiembro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdea" Type="int" Nullable="false" />
+          <Property Name="idMiembro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Miembro">
+          <Key>
+            <PropertyRef Name="idMiembro" />
+          </Key>
+          <Property Name="idMiembro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreMiembro" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="apellidoMiembro" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="cedulaMiembro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correoMiembro" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DepartamentoColor_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="DepartamentoColor" Type="Self.DepartamentoColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="DepartamentoColor">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartamentoColor_Departamento">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="DepartamentoColor" Type="Self.DepartamentoColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="DepartamentoColor">
+              <PropertyRef Name="idDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesarrolloRegional_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="DesarrolloRegional" Type="Self.DesarrolloRegional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="DesarrolloRegional">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaColor_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="ideaColor" Type="Self.ideaColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="ideaColor">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaColor_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaColor" Type="Self.ideaColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaColor">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaHerramienta_Herramienta">
+          <End Role="Herramienta" Type="Self.Herramienta" Multiplicity="1" />
+          <End Role="ideaHerramienta" Type="Self.ideaHerramienta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Herramienta">
+              <PropertyRef Name="idHerramienta" />
+            </Principal>
+            <Dependent Role="ideaHerramienta">
+              <PropertyRef Name="idHerramienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaHerramienta_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaHerramienta" Type="Self.ideaHerramienta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaHerramienta">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaMiembro_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaMiembro" Type="Self.ideaMiembro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaMiembro">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaMiembro_Miembro">
+          <End Role="Miembro" Type="Self.Miembro" Multiplicity="1" />
+          <End Role="ideaMiembro" Type="Self.ideaMiembro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miembro">
+              <PropertyRef Name="idMiembro" />
+            </Principal>
+            <Dependent Role="ideaMiembro">
+              <PropertyRef Name="idMiembro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ColoriaModelStoreContainer">
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartamentoColor" EntityType="Self.DepartamentoColor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesarrolloRegional" EntityType="Self.DesarrolloRegional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Herramienta" EntityType="Self.Herramienta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Idea" EntityType="Self.Idea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ideaColor" EntityType="Self.ideaColor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ideaHerramienta" EntityType="Self.ideaHerramienta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ideaMiembro" EntityType="Self.ideaMiembro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Miembro" EntityType="Self.Miembro" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DepartamentoColor_Color" Association="Self.FK_DepartamentoColor_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="DepartamentoColor" EntitySet="DepartamentoColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartamentoColor_Departamento" Association="Self.FK_DepartamentoColor_Departamento">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="DepartamentoColor" EntitySet="DepartamentoColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesarrolloRegional_Idea" Association="Self.FK_DesarrolloRegional_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="DesarrolloRegional" EntitySet="DesarrolloRegional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaColor_Color" Association="Self.FK_ideaColor_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ideaColor" EntitySet="ideaColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaColor_Idea" Association="Self.FK_ideaColor_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaColor" EntitySet="ideaColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaHerramienta_Herramienta" Association="Self.FK_ideaHerramienta_Herramienta">
+            <End Role="Herramienta" EntitySet="Herramienta" />
+            <End Role="ideaHerramienta" EntitySet="ideaHerramienta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaHerramienta_Idea" Association="Self.FK_ideaHerramienta_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaHerramienta" EntitySet="ideaHerramienta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaMiembro_Idea" Association="Self.FK_ideaMiembro_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaMiembro" EntitySet="ideaMiembro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaMiembro_Miembro" Association="Self.FK_ideaMiembro_Miembro">
+            <End Role="Miembro" EntitySet="Miembro" />
+            <End Role="ideaMiembro" EntitySet="ideaMiembro" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ColoriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="idColor" />
+          </Key>
+          <Property Name="idColor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcionColor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DepartamentoColor" Relationship="Self.FK_DepartamentoColor_Color" FromRole="Color" ToRole="DepartamentoColor" />
+          <NavigationProperty Name="ideaColor" Relationship="Self.FK_ideaColor_Color" FromRole="Color" ToRole="ideaColor" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="idDepartamento" />
+          </Key>
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreDepartamento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DepartamentoColor" Relationship="Self.FK_DepartamentoColor_Departamento" FromRole="Departamento" ToRole="DepartamentoColor" />
+        </EntityType>
+        <EntityType Name="DepartamentoColor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="idColor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_DepartamentoColor_Color" FromRole="DepartamentoColor" ToRole="Color" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK_DepartamentoColor_Departamento" FromRole="DepartamentoColor" ToRole="Departamento" />
+        </EntityType>
+        <EntityType Name="DesarrolloRegional">
+          <Key>
+            <PropertyRef Name="idDesarrolloRegional" />
+          </Key>
+          <Property Name="idDesarrolloRegional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdea" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Idea" Relationship="Self.FK_DesarrolloRegional_Idea" FromRole="DesarrolloRegional" ToRole="Idea" />
+        </EntityType>
+        <EntityType Name="Herramienta">
+          <Key>
+            <PropertyRef Name="idHerramienta" />
+          </Key>
+          <Property Name="idHerramienta" Type="Int32" Nullable="false" />
+          <Property Name="nombreHerramienta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ideaHerramienta" Relationship="Self.FK_ideaHerramienta_Herramienta" FromRole="Herramienta" ToRole="ideaHerramienta" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="idIdea" />
+          </Key>
+          <Property Name="idIdea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreIdea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inversionRequerida" Type="Double" Nullable="false" />
+          <Property Name="ingresosObjetivos" Type="Double" Nullable="false" />
+          <Property Name="inversionInfraestructura" Type="Double" Nullable="false" />
+          <NavigationProperty Name="DesarrolloRegional" Relationship="Self.FK_DesarrolloRegional_Idea" FromRole="Idea" ToRole="DesarrolloRegional" />
+          <NavigationProperty Name="ideaColor" Relationship="Self.FK_ideaColor_Idea" FromRole="Idea" ToRole="ideaColor" />
+          <NavigationProperty Name="ideaHerramienta" Relationship="Self.FK_ideaHerramienta_Idea" FromRole="Idea" ToRole="ideaHerramienta" />
+          <NavigationProperty Name="ideaMiembro" Relationship="Self.FK_ideaMiembro_Idea" FromRole="Idea" ToRole="ideaMiembro" />
+        </EntityType>
+        <EntityType Name="ideaColor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdea" Type="Int32" Nullable="false" />
+          <Property Name="idColor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ideaColor_Color" FromRole="ideaColor" ToRole="Color" />
+          <NavigationProperty Name="Idea" Relationship="Self.FK_ideaColor_Idea" FromRole="ideaColor" ToRole="Idea" />
+        </EntityType>
+        <EntityType Name="ideaHerramienta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdea" Type="Int32" Nullable="false" />
+          <Property Name="idHerramienta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Herramienta" Relationship="Self.FK_ideaHerramienta_Herramienta" FromRole="ideaHerramienta" ToRole="Herramienta" />
+          <NavigationProperty Name="Idea" Relationship="Self.FK_ideaHerramienta_Idea" FromRole="ideaHerramienta" ToRole="Idea" />
+        </EntityType>
+        <EntityType Name="ideaMiembro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdea" Type="Int32" Nullable="false" />
+          <Property Name="idMiembro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Idea" Relationship="Self.FK_ideaMiembro_Idea" FromRole="ideaMiembro" ToRole="Idea" />
+          <NavigationProperty Name="Miembro" Relationship="Self.FK_ideaMiembro_Miembro" FromRole="ideaMiembro" ToRole="Miembro" />
+        </EntityType>
+        <EntityType Name="Miembro">
+          <Key>
+            <PropertyRef Name="idMiembro" />
+          </Key>
+          <Property Name="idMiembro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreMiembro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMiembro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cedulaMiembro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correoMiembro" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ideaMiembro" Relationship="Self.FK_ideaMiembro_Miembro" FromRole="Miembro" ToRole="ideaMiembro" />
+        </EntityType>
+        <Association Name="FK_DepartamentoColor_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="DepartamentoColor" Type="Self.DepartamentoColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="DepartamentoColor">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaColor_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="ideaColor" Type="Self.ideaColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="ideaColor">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartamentoColor_Departamento">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="DepartamentoColor" Type="Self.DepartamentoColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="idDepartamento" />
+            </Principal>
+            <Dependent Role="DepartamentoColor">
+              <PropertyRef Name="idDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DesarrolloRegional_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="DesarrolloRegional" Type="Self.DesarrolloRegional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="DesarrolloRegional">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaHerramienta_Herramienta">
+          <End Role="Herramienta" Type="Self.Herramienta" Multiplicity="1" />
+          <End Role="ideaHerramienta" Type="Self.ideaHerramienta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Herramienta">
+              <PropertyRef Name="idHerramienta" />
+            </Principal>
+            <Dependent Role="ideaHerramienta">
+              <PropertyRef Name="idHerramienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaColor_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaColor" Type="Self.ideaColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaColor">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaHerramienta_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaHerramienta" Type="Self.ideaHerramienta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaHerramienta">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaMiembro_Idea">
+          <End Role="Idea" Type="Self.Idea" Multiplicity="1" />
+          <End Role="ideaMiembro" Type="Self.ideaMiembro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idea">
+              <PropertyRef Name="idIdea" />
+            </Principal>
+            <Dependent Role="ideaMiembro">
+              <PropertyRef Name="idIdea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ideaMiembro_Miembro">
+          <End Role="Miembro" Type="Self.Miembro" Multiplicity="1" />
+          <End Role="ideaMiembro" Type="Self.ideaMiembro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miembro">
+              <PropertyRef Name="idMiembro" />
+            </Principal>
+            <Dependent Role="ideaMiembro">
+              <PropertyRef Name="idMiembro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ColoriaEntitiesEn" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+          <EntitySet Name="DepartamentoColor" EntityType="Self.DepartamentoColor" />
+          <EntitySet Name="DesarrolloRegional" EntityType="Self.DesarrolloRegional" />
+          <EntitySet Name="Herramienta" EntityType="Self.Herramienta" />
+          <EntitySet Name="Idea" EntityType="Self.Idea" />
+          <EntitySet Name="ideaColor" EntityType="Self.ideaColor" />
+          <EntitySet Name="ideaHerramienta" EntityType="Self.ideaHerramienta" />
+          <EntitySet Name="ideaMiembro" EntityType="Self.ideaMiembro" />
+          <EntitySet Name="Miembro" EntityType="Self.Miembro" />
+          <AssociationSet Name="FK_DepartamentoColor_Color" Association="Self.FK_DepartamentoColor_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="DepartamentoColor" EntitySet="DepartamentoColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaColor_Color" Association="Self.FK_ideaColor_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ideaColor" EntitySet="ideaColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartamentoColor_Departamento" Association="Self.FK_DepartamentoColor_Departamento">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="DepartamentoColor" EntitySet="DepartamentoColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DesarrolloRegional_Idea" Association="Self.FK_DesarrolloRegional_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="DesarrolloRegional" EntitySet="DesarrolloRegional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaHerramienta_Herramienta" Association="Self.FK_ideaHerramienta_Herramienta">
+            <End Role="Herramienta" EntitySet="Herramienta" />
+            <End Role="ideaHerramienta" EntitySet="ideaHerramienta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaColor_Idea" Association="Self.FK_ideaColor_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaColor" EntitySet="ideaColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaHerramienta_Idea" Association="Self.FK_ideaHerramienta_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaHerramienta" EntitySet="ideaHerramienta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaMiembro_Idea" Association="Self.FK_ideaMiembro_Idea">
+            <End Role="Idea" EntitySet="Idea" />
+            <End Role="ideaMiembro" EntitySet="ideaMiembro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ideaMiembro_Miembro" Association="Self.FK_ideaMiembro_Miembro">
+            <End Role="Miembro" EntitySet="Miembro" />
+            <End Role="ideaMiembro" EntitySet="ideaMiembro" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ColoriaModelStoreContainer" CdmEntityContainer="ColoriaEntitiesEn">
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="ColoriaModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="idColor" ColumnName="idColor" />
+                <ScalarProperty Name="nombreColor" ColumnName="nombreColor" />
+                <ScalarProperty Name="descripcionColor" ColumnName="descripcionColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamento">
+            <EntityTypeMapping TypeName="ColoriaModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="nombreDepartamento" ColumnName="nombreDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartamentoColor">
+            <EntityTypeMapping TypeName="ColoriaModel.DepartamentoColor">
+              <MappingFragment StoreEntitySet="DepartamentoColor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+                <ScalarProperty Name="idColor" ColumnName="idColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesarrolloRegional">
+            <EntityTypeMapping TypeName="ColoriaModel.DesarrolloRegional">
+              <MappingFragment StoreEntitySet="DesarrolloRegional">
+                <ScalarProperty Name="idDesarrolloRegional" ColumnName="idDesarrolloRegional" />
+                <ScalarProperty Name="idIdea" ColumnName="idIdea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Herramienta">
+            <EntityTypeMapping TypeName="ColoriaModel.Herramienta">
+              <MappingFragment StoreEntitySet="Herramienta">
+                <ScalarProperty Name="idHerramienta" ColumnName="idHerramienta" />
+                <ScalarProperty Name="nombreHerramienta" ColumnName="nombreHerramienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idea">
+            <EntityTypeMapping TypeName="ColoriaModel.Idea">
+              <MappingFragment StoreEntitySet="Idea">
+                <ScalarProperty Name="idIdea" ColumnName="idIdea" />
+                <ScalarProperty Name="nombreIdea" ColumnName="nombreIdea" />
+                <ScalarProperty Name="inversionRequerida" ColumnName="inversionRequerida" />
+                <ScalarProperty Name="ingresosObjetivos" ColumnName="ingresosObjetivos" />
+                <ScalarProperty Name="inversionInfraestructura" ColumnName="inversionInfraestructura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ideaColor">
+            <EntityTypeMapping TypeName="ColoriaModel.ideaColor">
+              <MappingFragment StoreEntitySet="ideaColor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idIdea" ColumnName="idIdea" />
+                <ScalarProperty Name="idColor" ColumnName="idColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ideaHerramienta">
+            <EntityTypeMapping TypeName="ColoriaModel.ideaHerramienta">
+              <MappingFragment StoreEntitySet="ideaHerramienta">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idIdea" ColumnName="idIdea" />
+                <ScalarProperty Name="idHerramienta" ColumnName="idHerramienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ideaMiembro">
+            <EntityTypeMapping TypeName="ColoriaModel.ideaMiembro">
+              <MappingFragment StoreEntitySet="ideaMiembro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idIdea" ColumnName="idIdea" />
+                <ScalarProperty Name="idMiembro" ColumnName="idMiembro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Miembro">
+            <EntityTypeMapping TypeName="ColoriaModel.Miembro">
+              <MappingFragment StoreEntitySet="Miembro">
+                <ScalarProperty Name="idMiembro" ColumnName="idMiembro" />
+                <ScalarProperty Name="nombreMiembro" ColumnName="nombreMiembro" />
+                <ScalarProperty Name="apellidoMiembro" ColumnName="apellidoMiembro" />
+                <ScalarProperty Name="cedulaMiembro" ColumnName="cedulaMiembro" />
+                <ScalarProperty Name="correoMiembro" ColumnName="correoMiembro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

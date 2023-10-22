@@ -1,0 +1,34 @@
+﻿@model CodigoLimpioEntityFrameWork.Models.Color
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Color</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionColor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idColor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,26 @@
+﻿@model CodigoLimpioEntityFrameWork.Models.Herramienta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Herramienta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreHerramienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreHerramienta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idHerramienta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

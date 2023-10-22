@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CodigoLimpioEntityFrameWork.Models.Miembro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreMiembro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidoMiembro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cedulaMiembro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correoMiembro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreMiembro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoMiembro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cedulaMiembro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correoMiembro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMiembro }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMiembro }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMiembro })
+        </td>
+    </tr>
+}
+
+</table>

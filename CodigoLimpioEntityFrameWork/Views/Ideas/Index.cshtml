@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CodigoLimpioEntityFrameWork.Models.Idea>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreIdea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inversionRequerida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ingresosObjetivos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inversionInfraestructura)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreIdea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inversionRequerida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ingresosObjetivos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.inversionInfraestructura)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idIdea }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idIdea }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idIdea })
+        </td>
+    </tr>
+}
+
+</table>

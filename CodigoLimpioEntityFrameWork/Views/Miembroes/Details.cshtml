@@ -1,0 +1,50 @@
+﻿@model CodigoLimpioEntityFrameWork.Models.Miembro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Miembro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreMiembro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreMiembro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoMiembro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoMiembro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cedulaMiembro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cedulaMiembro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correoMiembro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correoMiembro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMiembro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
