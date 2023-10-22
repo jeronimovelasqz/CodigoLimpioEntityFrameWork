@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\DesarrolloRegionalsController.cs" />
+    <Compile Include="Controllers\EstadisticasController.cs" />
     <Compile Include="Controllers\HerramientasController.cs" />
     <Compile Include="Controllers\ideaColorsController.cs" />
     <Compile Include="Controllers\ideaHerramientasController.cs" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Herramientas\Details.cshtml" />
     <Content Include="Views\Herramientas\Edit.cshtml" />
     <Content Include="Views\Herramientas\Index.cshtml" />
+    <Content Include="Views\Estadisticas\Operaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

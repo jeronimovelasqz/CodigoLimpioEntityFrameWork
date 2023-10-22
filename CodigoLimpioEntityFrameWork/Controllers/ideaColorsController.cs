@@ -41,13 +41,11 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         {
             ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             ViewBag.idColor = new SelectList(db.Color, "idColor", "nombreColor");
+            ViewBag.Colors = db.Color.ToList(); // Aquí pasas la lista de colores a la vista
             return View();
         }
 
-
         // POST: ideaColors/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,idIdea,idColor")] ideaColor ideaColor)
@@ -56,13 +54,15 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.ideaColor.Add(ideaColor);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("Create", new { id = ideaColor.idIdea });
             }
 
             ViewBag.idColor = new SelectList(db.Color, "idColor", "nombreColor", ideaColor.idColor);
             ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea", ideaColor.idIdea);
+            ViewBag.Colors = db.Color.ToList(); // Aquí pasas la lista de colores a la vista
             return View(ideaColor);
         }
+
 
         // GET: ideaColors/Edit/5
         public ActionResult Edit(int? id)

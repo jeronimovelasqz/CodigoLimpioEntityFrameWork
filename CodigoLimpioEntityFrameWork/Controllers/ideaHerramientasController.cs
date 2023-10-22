@@ -41,6 +41,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         {
             ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             ViewBag.idHerramienta = new SelectList(db.Herramienta, "idHerramienta", "nombreHerramienta");
+            ViewBag.Herramientas = db.Herramienta.ToList(); // Aquí pasas la lista de herramientas a la vista
             return View();
         }
 
@@ -53,13 +54,15 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.ideaHerramienta.Add(ideaHerramienta);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("Create", new { id = ideaHerramienta.idIdea });
             }
 
             ViewBag.idHerramienta = new SelectList(db.Herramienta, "idHerramienta", "nombreHerramienta", ideaHerramienta.idHerramienta);
             ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea", ideaHerramienta.idIdea);
+            ViewBag.Herramientas = db.Herramienta.ToList(); // Aquí pasas la lista de herramientas a la vista
             return View(ideaHerramienta);
         }
+
 
 
         // GET: ideaHerramientas/Edit/5

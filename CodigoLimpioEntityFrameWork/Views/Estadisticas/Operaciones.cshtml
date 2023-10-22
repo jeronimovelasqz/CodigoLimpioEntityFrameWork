@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Operaciones";
+}
+
+<h2>Operaciones</h2>
+
+@using (Html.BeginForm("IdeasMayorRentabilidad", "Estadisticas", FormMethod.Post))
+{
+    <input type="submit" value="Ideas con mayor rentabilidad" class="btn btn-primary" />
+}
+
+@if (ViewBag.IdeasMayorRentabilidad != null)
+{
+    <h3>Ideas con mayor rentabilidad:</h3>
+    <ul>
+        @foreach (var idea in ViewBag.IdeasMayorRentabilidad)
+        {
+            <li>@idea.nombreIdea</li>
+        }
+    </ul>
+}
+
