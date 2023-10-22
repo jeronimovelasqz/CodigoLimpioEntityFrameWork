@@ -53,7 +53,7 @@ namespace CodigoLimpioEntityFrameWork.Controllers
             {
                 db.ideaHerramienta.Add(ideaHerramienta);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.idHerramienta = new SelectList(db.Herramienta, "idHerramienta", "nombreHerramienta", ideaHerramienta.idHerramienta);

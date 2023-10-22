@@ -37,11 +37,13 @@ namespace CodigoLimpioEntityFrameWork.Controllers
         }
 
         // GET: DesarrolloRegionals/Create
-        public ActionResult Create()
+        
+        public ActionResult Create(int id)
         {
-            ViewBag.idIdea = new SelectList(db.Idea, "idIdea", "nombreIdea");
+            ViewBag.idIdea = id; // Aquí pasas el ID de la idea
             return View();
         }
+
 
         // POST: DesarrolloRegionals/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
