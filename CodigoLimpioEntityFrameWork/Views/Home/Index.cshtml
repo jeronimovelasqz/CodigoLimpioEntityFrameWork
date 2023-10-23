@@ -2,16 +2,133 @@
     ViewBag.Title = "Home Page";
 }
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Bienvenido a nuestra aplicación</h1>
-        <p class="lead">Nuestra aplicación es una plataforma increíble que te permite hacer cosas asombrosas. Aquí puedes aprender, explorar y crecer.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Aprende más »</a></p>
-        <p>
-            <button onclick="location.href='@Url.Action("Administrador", "Flux")'" type="button" class="btn btn-primary btn-md">Soy administrador</button>
-            <button onclick="location.href='@Url.Action("Usuario", "Flux")'" type="button" class="btn btn-primary btn-md">Soy usuario</button>
+        <h1 id="title">EMPRENDIMIENTO 4RI</h1>
+        <p class="parrafo-general">
+            Esta aplicación estaría diseñada para capturar, organizar y evaluar
+            ideas de negocio que incluyan herramientas de la Cuarta Revolución
+            Industrial (4RI) y que beneficien la transformación social
+            y económica del país.
         </p>
+
+        <p class="parrafo-1">
+            ¡Construyamos Ideas, así contruimos un futuro!
+        </p>
+
+        <div class="botones">
+            <button onclick="location.href='@Url.Action("Administrador", "Flux")'" type="button" class="btn btn-primary administrador-btn">Soy Administrador</button>
+            <button onclick="location.href='@Url.Action("Usuario", "Flux")'" type="button" class="btn btn-primary usuario-btn">Soy Usuario</button>
+
+        </div>
+
     </section>
 
-   
 </main>
+
+<style>
+
+    body {
+        background-image: url('../../Imagenes/Imagen_1.1.png');
+        background-size: 90%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .parrafo-general {
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        color: #000000;
+        margin-bottom: 20px;
+        text-align: center;
+        position: relative;
+        top: -5px;
+    }
+
+    .botones {
+        line-height: 1.5;
+        word-wrap: break-word;
+        background-color: white;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        top: 60px;
+        left: -10px;
+        height: 200px;
+    }
+
+    .parrafo-1 {
+        font-size: 25px;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        color: #000000;
+        margin-bottom: 20px;
+        text-align: center;
+        position: relative;
+        top: 30px;
+        left: -5px;
+    }
+
+    .btn-primary {
+        background-color: #F2A154;
+    }
+
+    .btn-primary:hover {
+        background-color: #0a00ff;
+    }
+
+    .administrador-btn {
+        position: relative;
+        margin-top: 90px;
+        left: 98px;
+        width: 200px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        display: inline-block;
+        border-radius: 40px;
+        cursor: pointer;
+        text-align: center;
+        border: none;
+    }
+
+    .usuario-btn {
+        position: relative;
+        left: -105px;
+        margin-top: -50px;
+        width: 200px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        display: inline-block;
+        text-align: center;
+        border-radius: 40px;
+        cursor: pointer;
+        border: none;
+    }
+
+    
+
+</style>
