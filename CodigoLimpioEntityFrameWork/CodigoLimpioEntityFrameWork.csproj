@@ -224,6 +224,7 @@
     <Content Include="Imagenes\Imagen_1.1.png" />
     <Content Include="Imagenes\Imagen_crear_idea.png" />
     <Content Include="Imagenes\Imagen_crear_miembro.png" />
+    <Content Include="Imagenes\Imagen_soy_administrador.png" />
     <Content Include="Imagenes\Imagen_soy_usuario.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
