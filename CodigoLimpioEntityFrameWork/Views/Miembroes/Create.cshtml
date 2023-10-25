@@ -1,22 +1,25 @@
 ﻿@model CodigoLimpioEntityFrameWork.Models.Miembro
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear Miembro";
 }
 
-<h2>Create</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+<h2>CREACIÓN DE MIEMBROS</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Miembro</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.nombreMiembro, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.nombreMiembro, "Nombre del Miembro", htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nombreMiembro, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombreMiembro, "", new { @class = "text-danger" })
@@ -24,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.apellidoMiembro, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.apellidoMiembro, "Apellidos",htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.apellidoMiembro, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.apellidoMiembro, "", new { @class = "text-danger" })
@@ -32,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cedulaMiembro, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.cedulaMiembro, "Cedula", htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.cedulaMiembro, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.cedulaMiembro, "", new { @class = "text-danger" })
@@ -40,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.correoMiembro, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.correoMiembro, "Correo Electronico", htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.correoMiembro, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.correoMiembro, "", new { @class = "text-danger" })
@@ -48,17 +51,57 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                <input type="submit" value="Crear Miembro" class="btn btn-default crear_miembro-btn" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+
+    body {
+        background-image: url('../../Imagenes/Imagen_crear_miembro.png');
+        background-size: 50%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        margin-left: 80px;
+    }
+
+    .form-horizontal {
+        margin-left: 80px;
+    }
+
+    .text {
+        margin-top: 15px;
+        font-family: Consolas;
+        font-size: 18px;
+    }
+
+    .crear_miembro-btn {
+        font-size: 16px;
+        text-align: center;
+        background-color: #F2A154;
+        color: white;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 40px;
+        cursor: pointer;
+        position: relative;
+        margin-left: 60px;
+        margin-top: 40px;
+    }
+
+</style>

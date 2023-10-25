@@ -2,16 +2,127 @@
     ViewBag.Title = "Soy usuario";
 }
 
-<h2>Soy usuario</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-@using (Html.BeginForm("Create", "Ideas", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <input type="submit" value="Crear idea" class="btn btn-primary btn-md" />
-}
+<h1>SOY USUARIO</h1>
 
-@using (Html.BeginForm("Create", "Miembroes", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <input type="submit" value="Crear miembro" class="btn btn-primary btn-md" />
-}
+<div class="parrafo">
+    <h3>
+        Lugar digital donde tus pensamientos toman forma.
+        Ya sea que tengas ideas para un proyecto,
+        un negocio o una historia, aquí puedes crearlas muy facilmente.
+    </h3>
+</div>
+
+<div class="botones">
+
+    @using (Html.BeginForm("Create", "Ideas", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Crear Idea" class="btn btn-primary crear_idea-btn" />
+    }
+
+    @using (Html.BeginForm("Create", "Miembroes", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Crear Miembro" class="btn btn-primary crear_miembro btn" />
+    }
+
+</div>
+
+<style>
+
+    h3 {
+        font-size: 20px;
+        font-family: Consolas
+    }
+
+    .botones {
+        margin-left: -50px;
+        position: relative;
+        top: -250px;
+    }
+
+    .parrafo {
+        line-height: 1.5;
+        word-wrap: break-word;
+        background-color: white;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        top: 90px;
+        left: -150px;
+    }
+
+    h1 {
+        position: relative;
+        top: 70px;
+        margin-left: 370px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+    body {
+        background-image: url('../../Imagenes/Imagen_soy_usuario.png');
+        background-size: 90%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .btn-primary {
+        background-color: #F2A154;
+    }
+
+        .btn-primary:hover {
+            background-color: #0a00ff;
+        }
+
+    .crear_idea-btn {
+        display: inline-block;
+        font-size: 18px;
+        text-align: center;
+        background-color: #F2A154;
+        color: #ffffff;
+        border-radius: 40px;
+        cursor: pointer;
+        position: absolute;
+        top: 400px;
+        border: none;
+        left: 450px;
+        width: 200px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    .crear_miembro {
+        display: inline-block;
+        font-size: 18px;
+        text-align: center;
+        background-color: #F2A154;
+        color: #ffffff;
+        border-radius: 40px;
+        cursor: pointer;
+        position: absolute;
+        top: 460px;
+        left: 450px;
+        border: none;
+        width: 200px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+    }
+</style>
+
+
+
+
