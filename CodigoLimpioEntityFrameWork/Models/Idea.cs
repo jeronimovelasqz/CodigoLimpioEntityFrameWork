@@ -11,7 +11,9 @@ namespace CodigoLimpioEntityFrameWork.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Idea
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,9 +26,17 @@ namespace CodigoLimpioEntityFrameWork.Models
         }
     
         public int idIdea { get; set; }
+
+        [DisplayName("Nombre Personalizado")]
         public string nombreIdea { get; set; }
+
+        [DisplayName("Inversión Requerida")]
         public double inversionRequerida { get; set; }
+
+        [DisplayName("Objetivos Ingresos")]
         public double ingresosObjetivos { get; set; }
+
+        [DisplayName("Inversión Infraestructura")]
         public double inversionInfraestructura { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

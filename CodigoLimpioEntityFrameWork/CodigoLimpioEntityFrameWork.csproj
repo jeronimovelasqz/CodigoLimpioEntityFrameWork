@@ -222,8 +222,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\Imagen_1.1.png" />
+    <Content Include="Imagenes\Imagen_color.png" />
     <Content Include="Imagenes\Imagen_crear_idea.png" />
     <Content Include="Imagenes\Imagen_crear_miembro.png" />
+    <Content Include="Imagenes\Imagen_estadisticas.png" />
+    <Content Include="Imagenes\Imagen_miembro.png" />
     <Content Include="Imagenes\Imagen_soy_administrador.png" />
     <Content Include="Imagenes\Imagen_soy_usuario.png" />
     <Content Include="Models\Model1.Context.tt">
@@ -231,6 +234,7 @@
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\Model1.edmx.sql" />
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
