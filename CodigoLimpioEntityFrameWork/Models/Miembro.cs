@@ -11,7 +11,9 @@ namespace CodigoLimpioEntityFrameWork.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Miembro
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +23,17 @@ namespace CodigoLimpioEntityFrameWork.Models
         }
     
         public int idMiembro { get; set; }
+
+        [DisplayName("Nombre")]
         public string nombreMiembro { get; set; }
+
+        [DisplayName("Apellido")]
         public string apellidoMiembro { get; set; }
+
+        [DisplayName("Cedula del Miembro")]
         public string cedulaMiembro { get; set; }
+
+        [DisplayName("Correo del Miembro")]
         public string correoMiembro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

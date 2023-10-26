@@ -222,10 +222,14 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\Imagen_1.1.png" />
-    <Content Include="Imagenes\Imagen_color.png" />
+    <Content Include="Imagenes\Imagen_crear_color.png" />
     <Content Include="Imagenes\Imagen_crear_idea.png" />
     <Content Include="Imagenes\Imagen_crear_miembro.png" />
+    <Content Include="Imagenes\Imagen_detalles.png" />
+    <Content Include="Imagenes\Imagen_editar.png" />
+    <Content Include="Imagenes\Imagen_eliminar.png" />
     <Content Include="Imagenes\Imagen_estadisticas.png" />
+    <Content Include="Imagenes\Imagen_gestiones.png" />
     <Content Include="Imagenes\Imagen_miembro.png" />
     <Content Include="Imagenes\Imagen_soy_administrador.png" />
     <Content Include="Imagenes\Imagen_soy_usuario.png" />

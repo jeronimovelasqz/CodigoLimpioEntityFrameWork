@@ -11,7 +11,9 @@ namespace CodigoLimpioEntityFrameWork.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,9 +22,13 @@ namespace CodigoLimpioEntityFrameWork.Models
             this.DepartamentoColor = new HashSet<DepartamentoColor>();
             this.ideaColor = new HashSet<ideaColor>();
         }
-    
+        
         public int idColor { get; set; }
+
+        [DisplayName("Nombre del Color")]
         public string nombreColor { get; set; }
+
+        [DisplayName("Descripción del Color")]
         public string descripcionColor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

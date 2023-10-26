@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<CodigoLimpioEntityFrameWork.Models.Miembro>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GESTIÓN DE MIEMBROS";
 }
 
-<h2>Index</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+<h2>GESTIÓN MIEMBROS</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("CREAR NUEVO MIEMBRO", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,26 +31,47 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreMiembro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidoMiembro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cedulaMiembro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correoMiembro)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idMiembro }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idMiembro }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idMiembro })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreMiembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidoMiembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedulaMiembro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correoMiembro)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idMiembro }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idMiembro }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.idMiembro })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<style>
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        left: 170px;
+        position: relative;
+        top: 5px;
+    }
+
+    body {
+        background-image: url('../../Imagenes/Imagen_gestiones.png');
+        background-size: 50%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+</style>

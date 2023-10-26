@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-<h2>Details</h2>
+<h2>DETALLES MIEMBRO</h2>
 
-<div>
-    <h4>Miembro</h4>
-    <hr />
+<div class="detalles">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.nombreMiembro)
@@ -56,6 +58,47 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idMiembro }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Miembro", "Edit", new { id = Model.idMiembro }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>
+
+<style>
+
+    body {
+        background-image: url('../../Imagenes/Imagen_detalles.png');
+        background-size: 90%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        left: 10px;
+        position: relative;
+        top: 5px;
+    }
+
+    dd {
+        margin-left: 25px;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    dt {
+        margin-left: 25px;
+    }
+
+    div.detalles {
+        margin-top: 30px;
+        background-color: white;
+        width: 45%;
+        height: 70%;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>

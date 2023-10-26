@@ -1,24 +1,27 @@
 ﻿@model CodigoLimpioEntityFrameWork.Models.Color
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EDITAR COLOR";
 }
 
-<h2>Edit</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+<h2>EDITAR COLOR</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Color</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idColor)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nombreColor, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.nombreColor, htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nombreColor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombreColor, "", new { @class = "text-danger" })
@@ -26,7 +29,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.descripcionColor, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.descripcionColor, htmlAttributes: new { @class = "text" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.descripcionColor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.descripcionColor, "", new { @class = "text-danger" })
@@ -35,16 +38,75 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="GUARDAR CAMBIOS" class="btn btn-default guardar_cambios-btn" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="Regresar">
+    @Html.ActionLink("REGRESAR", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+
+
+    body {
+        background-image: url('../../Imagenes/Imagen_editar.png');
+        background-size: 90%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .text {
+        margin-top: 15px;
+        font-family: Consolas;
+        font-size: 18px;
+    }
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        left: 25px;
+        position: relative;
+        top: 5px;
+    }
+
+    .guardar_cambios-btn {
+        font-size: 18px;
+        text-align: center;
+        background-color: #F2A154;
+        color: white;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 40px;
+        cursor: pointer;
+        position: relative;
+        left: 30px;
+        top: 20px;
+    }
+
+    .Regresar {
+        position: relative;
+        margin-top: 70px;
+        display: inline-block;
+        padding: 5px;
+        background-color: #F2A154;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        width: auto;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        color: #FFFFFF;
+    }
+</style>

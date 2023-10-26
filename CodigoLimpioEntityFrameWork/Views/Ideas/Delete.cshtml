@@ -1,56 +1,151 @@
 ﻿@model CodigoLimpioEntityFrameWork.Models.Idea
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "BORRAR IDEA";
 }
 
-<h2>Delete</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-<h3>Are you sure you want to delete this?</h3>
+<h2>BORRAR IDEA</h2>
+
+<h3>¿ESTAS SEGURO DE ELIMINAR LA IDEA?</h3>
 <div>
-    <h4>Idea</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
+        <dt class="texto">
             @Html.DisplayNameFor(model => model.nombreIdea)
         </dt>
 
-        <dd>
+        <dd class="texto">
             @Html.DisplayFor(model => model.nombreIdea)
         </dd>
 
-        <dt>
+        <dt class="texto">
             @Html.DisplayNameFor(model => model.inversionRequerida)
         </dt>
 
-        <dd>
+        <dd class="texto">
             @Html.DisplayFor(model => model.inversionRequerida)
         </dd>
 
-        <dt>
+        <dt class="texto">
             @Html.DisplayNameFor(model => model.ingresosObjetivos)
         </dt>
 
-        <dd>
+        <dd class="texto">
             @Html.DisplayFor(model => model.ingresosObjetivos)
         </dd>
 
-        <dt>
+        <dt class="texto">
             @Html.DisplayNameFor(model => model.inversionInfraestructura)
         </dt>
 
-        <dd>
+        <dd class="texto">
             @Html.DisplayFor(model => model.inversionInfraestructura)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="ELIMINAR" class="btn btn-default eliminar-btn" /> |
         </div>
     }
+
 </div>
+
+<div class="Regresar">
+    @Html.ActionLink("REGRESAR", "Index")
+</div>
+
+<style>
+
+    body {
+        background-image: url('../../Imagenes/Imagen_eliminar.png');
+        background-size: 90%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    dd.texto {
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 25px;
+    }
+
+    dt.texto {
+        margin-left: 25px;
+    }
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        left: 170px;
+        position: relative;
+        top: 5px;
+    }
+
+    h3 {
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    .eliminar-btn {
+        font-size: 18px;
+        text-align: center;
+        background-color: #F2A154;
+        color: white;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 40px;
+        cursor: pointer;
+        position: relative;
+        left: 18%;
+        top: 5px;
+    }
+
+    .Regresar {
+        position: relative;
+        top: -32px;
+        left: 5%;
+        display: inline-block;
+        padding: 5px;
+        background-color: #F2A154;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        width: auto;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        color: #FFFFFF;
+    }
+
+    .dl-horizontal {
+        background-color: white;
+        width: 45%;
+        height: 70%;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .form-actions::after {
+        content: "|"; 
+        display: none; 
+    }
+</style>

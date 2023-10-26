@@ -27,7 +27,7 @@ namespace CodigoLimpioEntityFrameWork.Models
     
         public int idIdea { get; set; }
 
-        [DisplayName("Nombre Personalizado")]
+        [DisplayName("Nombre de la Idea")]
         public string nombreIdea { get; set; }
 
         [DisplayName("Inversión Requerida")]
@@ -42,8 +42,12 @@ namespace CodigoLimpioEntityFrameWork.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesarrolloRegional> DesarrolloRegional { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [DisplayName("Idea Color")]
         public virtual ICollection<ideaColor> ideaColor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [DisplayName("Idea Herramienta")]
         public virtual ICollection<ideaHerramienta> ideaHerramienta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ideaMiembro> ideaMiembro { get; set; }
