@@ -5,151 +5,153 @@
 }
 
 
+<div class="botones">
 
-@using (Html.BeginForm("IdeasMayorRentabilidad", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Ideas con mayor rentabilidad" class="btn btn-primary" style="margin-bottom: 10px; width: 100% " />
-}
+    @using (Html.BeginForm("IdeasMayorRentabilidad", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Ideas con mayor rentabilidad" class="btn btn-primary btn_group" style="margin-bottom: 10px; width: 100% " />
+    }
 
-@if (ViewBag.IdeasMasRentables != null)
-{
-    <h3>Ideas con mayor rentabilidad:</h3>
-    <ul>
-        @foreach (var idea in ViewBag.IdeasMasRentables)
-        {
-            <li>@idea.nombreIdea</li>
-        }
-    </ul>
-}
-
-
-
-
-@using (Html.BeginForm("IdeasImpactoDepartamentos", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Ideas que impactan a más de 3 departamentos" class="btn btn-primary" style="margin-bottom: 10px; width: 100%" />
-}
-
-@if (ViewBag.IdeasQueImpactan3Departamentos != null)
-{
-    <h3>Ideas que impactan a más de 3 departamentos:</h3>
-    <ul>
-        @foreach (var idea in ViewBag.IdeasQueImpactan3Departamentos)
-        {
-            <li>@idea.nombreIdea</li>
-        }
-    </ul>
-}
+    @if (ViewBag.IdeasMasRentables != null)
+    {
+        <h3>Ideas con mayor rentabilidad:</h3>
+        <ul>
+            @foreach (var idea in ViewBag.IdeasMasRentables)
+            {
+                <li>@idea.nombreIdea</li>
+            }
+        </ul>
+    }
 
 
-@using (Html.BeginForm("SumaIngresos", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Suma total de ingresos de todas las ideas de negocio" class="btn btn-primary" style="margin-bottom: 10px;" />
-}
+    @using (Html.BeginForm("IdeasImpactoDepartamentos", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Ideas que impactan a más de 3 departamentos" class="btn btn-primary btn_group" style="margin-bottom: 10px; width: 100%" />
+    }
 
-@if (ViewBag.SumaIngresos != null)
-{
-    <h3>La suma total de ingresos de todas las ideas de negocio es:</h3>
-    <p>@ViewBag.SumaIngresos</p>
-}
+    @if (ViewBag.IdeasQueImpactan3Departamentos != null)
+    {
+        <h3>Ideas que impactan a más de 3 departamentos:</h3>
+        <ul>
+            @foreach (var idea in ViewBag.IdeasQueImpactan3Departamentos)
+            {
+                <li>@idea.nombreIdea</li>
+            }
+        </ul>
+    }
 
 
+    @using (Html.BeginForm("SumaIngresos", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Suma total de ingresos de todas las ideas de negocio" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
 
-
-
-@using (Html.BeginForm("SumaInversiones", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Suma total de la inversión requerida en todas las ideas de negocio" class="btn btn-primary" style="margin-bottom: 10px;"/>
-}
-
-@if (ViewBag.SumaInversion != null)
-{
-    <h3>La suma total de la inversión requerida en todas las ideas de negocio es:</h3>
-    <p>@ViewBag.SumaInversion</p>
-}
+    @if (ViewBag.SumaIngresos != null)
+    {
+        <h3>La suma total de ingresos de todas las ideas de negocio es:</h3>
+        <p>@ViewBag.SumaIngresos</p>
+    }
 
 
 
 
 
-@using (Html.BeginForm("IdeaMayorHerramientas", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Idea de negocio con la mayor cantidad de herramientas 4RI" class="btn btn-primary" style="margin-bottom: 10px;" />
-}
+    @using (Html.BeginForm("SumaInversiones", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Suma total de la inversión requerida en todas las ideas de negocio" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
 
-@if (ViewBag.IdeasConMayorHerramientas != null)
-{
-    <h3>Idea de negocio con la mayor cantidad de herramientas 4RI:</h3>
-    <p>@ViewBag.IdeasConMayorHerramientas.nombreIdea</p>
-}
-
-
-
-@using (Html.BeginForm("IdeasConIA", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Cantidad de ideas de negocio que tienen Inteligencia Artificial" class="btn btn-primary" style="margin-bottom: 10px;" />
-}
-
-@if (ViewBag.IdeasConIa != null)
-{
-    <h3>Cantidad de ideas de negocio que tienen Inteligencia Artificial:</h3>
-    <p>@ViewBag.IdeasConIa</p>
-}
+    @if (ViewBag.SumaInversion != null)
+    {
+        <h3>La suma total de la inversión requerida en todas las ideas de negocio es:</h3>
+        <p>@ViewBag.SumaInversion</p>
+    }
 
 
 
 
 
-@using (Html.BeginForm("IdeaMayorInversionInfraestructura", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Idea de negocio con mayor inversión en infraestructura" class="btn btn-primary" style="margin-bottom: 10px;"/>
-}
+    @using (Html.BeginForm("IdeaMayorHerramientas", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Idea de negocio con la mayor cantidad de herramientas 4RI" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
 
-@if (ViewBag.IdeasConMayorInfraestructura != null)
-{
-    <h3>Idea de negocio con mayor inversión en infraestructura:</h3>
-    <p>@ViewBag.IdeasConMayorInfraestructura.nombreIdea</p>
-}
-
-
+    @if (ViewBag.IdeasConMayorHerramientas != null)
+    {
+        <h3>Idea de negocio con la mayor cantidad de herramientas 4RI:</h3>
+        <p>@ViewBag.IdeasConMayorHerramientas.nombreIdea</p>
+    }
 
 
 
+    @using (Html.BeginForm("IdeasConIA", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Cantidad de ideas de negocio que tienen Inteligencia Artificial" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
 
-@using (Html.BeginForm("IdeasIngresosMayorPromedio", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Ideas con ingresos mayores al promedio" class="btn btn-primary" style="margin-bottom: 10px;" />
-}
-
-@if (ViewBag.IdeasConMayorPromedio != null)
-{
-    <h3>Ideas con ingresos mayores al promedio:</h3>
-    <ul>
-        @foreach (var idea in ViewBag.IdeasConMayorPromedio)
-        {
-            <li>@idea.nombreIdea</li>
-        }
-    </ul>
-}
+    @if (ViewBag.IdeasConIa != null)
+    {
+        <h3>Cantidad de ideas de negocio que tienen Inteligencia Artificial:</h3>
+        <p>@ViewBag.IdeasConIa</p>
+    }
 
 
 
 
-@using (Html.BeginForm("IdeasConDesarrolloSostenible", "Estadisticas", FormMethod.Post))
-{
-    <input type="submit" value="Ideas con herramienta 'Desarrollo Sostenible'" class="btn btn-primary" style="margin-bottom: 10px;" />
-}
 
-@if (ViewBag.IdeasConDesarrolloSostenible != null )
-{
-    <h3>Ideas con herramienta 'Desarrollo Sostenible':</h3>
-    <ul>
-        @foreach (var idea in ViewBag.IdeasConDesarrolloSostenible)
-        {
-            <li>@idea.nombreIdea</li>
-        }
-    </ul>
-}
+    @using (Html.BeginForm("IdeaMayorInversionInfraestructura", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Idea de negocio con mayor inversión en infraestructura" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
+
+    @if (ViewBag.IdeasConMayorInfraestructura != null)
+    {
+        <h3>Idea de negocio con mayor inversión en infraestructura:</h3>
+        <p>@ViewBag.IdeasConMayorInfraestructura.nombreIdea</p>
+    }
+
+
+
+
+
+
+    @using (Html.BeginForm("IdeasIngresosMayorPromedio", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Ideas con ingresos mayores al promedio" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
+
+    @if (ViewBag.IdeasConMayorPromedio != null)
+    {
+        <h3>Ideas con ingresos mayores al promedio:</h3>
+        <ul>
+            @foreach (var idea in ViewBag.IdeasConMayorPromedio)
+            {
+                <li>@idea.nombreIdea</li>
+            }
+        </ul>
+    }
+
+
+
+
+    @using (Html.BeginForm("IdeasConDesarrolloSostenible", "Estadisticas", FormMethod.Post))
+    {
+        <input type="submit" value="Ideas con herramienta 'Desarrollo Sostenible'" class="btn btn-primary btn_group" style="margin-bottom: 10px;" />
+    }
+
+    @if (ViewBag.IdeasConDesarrolloSostenible != null)
+    {
+        <h3>Ideas con herramienta 'Desarrollo Sostenible':</h3>
+        <ul>
+            @foreach (var idea in ViewBag.IdeasConDesarrolloSostenible)
+            {
+                <li>@idea.nombreIdea</li>
+            }
+        </ul>
+    }
+
+</div>
+
 
 <style>
 
@@ -164,7 +166,11 @@
         background-position: center;
     }
 
+    .botones{
+        margin-left: 700px;
+        margin-top: 70px;
 
+    }
 
 
 

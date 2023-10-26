@@ -4,30 +4,92 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+
+<h2>CREAR DESARROLLO REGIONAL</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>DesarrolloRegional</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Hidden("idIdea", (int)ViewBag.idIdea)
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="CREAR DESARROLLO" class="btn btn-default crear_desarrollo-btn" />
             </div>
         </div>
     </div>
 }
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+<div class="Regresar">
+    @Html.ActionLink("REGRESAR", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+
+    h2 {
+        font-family: 'Roboto', sans-serif;
+        margin-left: 375px;
+        margin-top: 270px;
+    }
+
+    body {
+        background-image: url('../../Imagenes/Imagen_crear_desarrollo_regional.png');
+        background-size: 50%;
+        background-color: #A5EAF3;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .form-horizontal {
+        margin-left: 80px;
+    }
+
+    .crear_desarrollo-btn.btn {
+        font-size: 16px;
+        text-align: center;
+        background-color: lightseagreen;
+        color: white;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius: 40px;
+        cursor: pointer;
+        position: relative;
+        top: 35px;
+        left: 420px;
+    }
+
+    .Regresar {
+        position: relative;
+        top: -340px;
+        display: inline-block;
+        padding: 5px;
+        background-color: #F2A154;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        width: auto;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        color: #FFFFFF;
+    }
+
+</style>

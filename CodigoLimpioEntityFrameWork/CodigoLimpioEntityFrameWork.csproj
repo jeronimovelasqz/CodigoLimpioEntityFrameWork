@@ -223,6 +223,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\Imagen_1.1.png" />
     <Content Include="Imagenes\Imagen_crear_color.png" />
+    <Content Include="Imagenes\Imagen_crear_desarrollo_regional.png" />
     <Content Include="Imagenes\Imagen_crear_idea.png" />
     <Content Include="Imagenes\Imagen_crear_miembro.png" />
     <Content Include="Imagenes\Imagen_detalles.png" />
